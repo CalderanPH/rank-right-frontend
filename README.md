@@ -1,29 +1,37 @@
-Rodando o projeto
-Clone esse repositório.
+# Rodando o Projeto
 
-git clone https://github.com/CalderanPH/rank-right-frontend
-Na sua IDE de preferência, rode o comando npm install.
+1. **Clone esse repositório:**
 
-Navegue até http://localhost:4200/.
+    ```bash
+    git clone https://github.com/CalderanPH/rank-right-frontend
+    ```
 
-Para a melhor experiência na navegação, deve ser usada a resolução de 1920*900.
+2. **Instale as dependências na sua IDE de preferência:**
 
-Alternativamente, visite o deploy da aplicação em Vercel Challenge Deploy
+    ```bash
+    npm install
+    ```
 
-Arquitetura
-Geral
-Para fazer a modularização do projeto, abstrai os requisitos dos desafios e separei a estrutura de pastas do projetos entre os módulos de: 'evaluation'.
+3. **Navegue até http://localhost:4200/.**
 
-Para o roteamento do projeto, adotei a estratégia de lazy loading, utilizando a abstração mencionada acima para declarar as rotas pais: formulario e lista-formularios
 
-Para o tratamento de erros do projeto, utilizei a estratégia de prover um Global Error Handler, que abrirá um componente de snackbar toda vez que a API externa retornar um erro.
+# Arquitetura
 
-Como biblioteca de UI's, utilizei o Angular Material
+## Geral
 
-API
-Esse projeto consome uma API externa que retorna dados a avaliações enviada por usuarios.
+- O projeto foi modularizado, abstraindo os requisitos dos desafios e separando a estrutura de pastas entre os módulos de 'evaluation'.
+  
+- Foram declaradas a rota '/home'.
+  
+- Angular Material foi escolhido como a biblioteca de UI.
 
-Usabilidade
-Para envio do formulario, basta preencher os campos e apertar o botão enviar.
+## API
 
-Não é possivel cadastrar mais de um formalario com o mesmo email.
+- O projeto consome uma API externa que retorna dados de avaliações enviadas por usuários.
+- Projeto dependente do backend rank-right: https://github.com/CalderanPH/rank-right
+
+# Usabilidade
+
+- Para enviar o formulário, basta preencher os campos e clicar no botão "enviar".
+  
+- Não é possível cadastrar mais de um formulário com o mesmo e-mail.
