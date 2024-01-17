@@ -1,0 +1,72 @@
+<ng-container class="h-100 container">
+  <div class="d-flex flex-column justify-content-center align-items-center">
+    <div
+      class="second-container d-flex flex-column align-items-center justify-content-center"
+    >
+      <span class="font-weight-bold fs-2 pt-5 pb-4" style="font-weight: 700"
+      >Envia a sua Avaliação</span
+      >
+      <span class="fs-4 text-center text-fill"
+      >Preencha os campos abaixo para validar sua avalição.</span
+      >
+    </div>
+    <div
+      [formGroup]="form"
+      class="d-flex gap-2 flex-column align-items-center justify-content-center form"
+    >
+      <div class="d-flex gap-4 form-field">
+        <mat-form-field appearance="fill">
+          <mat-label>E-mail</mat-label>
+          <input matInput formControlName="email"/>
+          <mat-error
+            *ngIf="
+              form.get('email')?.hasError('required') &&
+              !form.get('email')?.hasError('email')
+            "
+          >
+            Campo obrigatório!
+          </mat-error>
+          <mat-error *ngIf="form.get('email')?.hasError('email')">
+            Digite um e-mail válido!
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Avaliação</mat-label>
+          <mat-select formControlName="rating">
+            <mat-option value="1">1</mat-option>
+            <mat-option value="2">2</mat-option>
+            <mat-option value="3">3</mat-option>
+            <mat-option value="4">4</mat-option>
+            <mat-option value="5">5</mat-option>
+          </mat-select>
+          <mat-error *ngIf="form.get('rating')?.hasError('required')">
+            Campo obrigatório!
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="d-flex gap-4 form-field">
+        <mat-form-field appearance="fill">
+          <mat-label>Observação</mat-label>
+          <input matInput formControlName="observations"/>
+          <mat-error *ngIf="form.get('observations')?.hasError('required')">
+            Campo obrigatório!
+          </mat-error>
+        </mat-form-field>
+        <ng-container *ngIf="parseInt(form.get('rating')?.value) <= 2">
+          <mat-form-field appearance="fill">
+            <mat-label>Contato</mat-label>
+            <input matInput formControlName="contactInfo"/>
+            <mat-error *ngIf="form.get('contactInfo')">
+              Campo obrigatório!
+            </mat-error>
+          </mat-form-field>
+        </ng-container>
+      </div>
+      <div class="d-flex gap-4 form-field">
+        <button mat-raised-button color="primary" (click)="sendData()" [disabled]="!form.valid">
+          ENVIAR
+        </button>
+      </div>
+    </div>
+  </div>
+</ng-container>

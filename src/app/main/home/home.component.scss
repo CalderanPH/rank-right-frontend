@@ -1,0 +1,39 @@
+html, span, button {
+    font-family: 'Lato', sans-serif;
+}
+
+button {
+    font-weight: 700;
+}
+
+.mdc-data-table__table {
+  min-width: 0 !important;
+}
+
+.footer {
+    background-color: #E8A612;
+    color: white;
+}
+
+.main-image {
+    width: 60%;
+    height: 60%;
+}
+
+header, main {
+    padding: 1rem 0;
+    background-image: url('background-marrom.png');
+}
+
+@media (max-width: 794px) {
+    .content {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+    }
+
+    .buttons {
+        padding-top: 2rem;
+    }
+}
